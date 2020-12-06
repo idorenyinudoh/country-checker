@@ -13,7 +13,7 @@ if('geolocation' in navigator) {
         longitudeBox.textContent = long;
 
         (async function() {
-            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&zoom=3&lat=${lat}&lon=${long}`);
+            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&zoom=3&lat=${lat}&lon=${long}`, {cache: 'no-store'});
             return response.json();
         })()
         .then(data => {
